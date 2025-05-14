@@ -3,6 +3,7 @@ package com.ccabc.repository;
 import com.ccabc.model.Customer;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ public class CustomerRepositoryNewListImpl implements CustomerRepository {
 
     List<Customer> customers=new ArrayList<>();
 
-    Customer c1 = new Customer(1006, "Sheldon", 998881, "GOLD", LocalDate.now());
+    Customer c1 = new Customer(1006, "Sheldon", 998881, "GOLD", LocalDate.of(2024, Month.AUGUST,22));
     Customer c2 = new Customer(1007, "Leonard", 998882, "PREMIUM", LocalDate.now());
     Customer c3 = new Customer(1008, "Howard", 998883, "BASIC", LocalDate.now());
     Customer c4 = new Customer(1009, "Raj", 998884, "GOLD", LocalDate.now());

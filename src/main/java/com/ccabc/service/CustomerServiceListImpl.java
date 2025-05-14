@@ -3,18 +3,28 @@ package com.ccabc.service;
 import com.ccabc.model.Customer;
 import com.ccabc.repository.CustomerRepository;
 import com.ccabc.repository.CustomerRepositoryListImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Locale;
-
+@Service
 public class CustomerServiceListImpl implements CustomerService{
 
 //    Apply Business Logic
 
     //Service is dependent on CustomerRepository
 //    [Tight Coupling] -- very bad implementation
-    CustomerRepository customerRepository=new CustomerRepositoryListImpl();
+//    CustomerRepository customerRepository=new CustomerRepositoryListImpl();
 //    ProgrammingLanguage language=new Java();
+
+    CustomerRepository customerRepository;
+
+//    Setter Injection
+
+    public void setCustomerRepository(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
 
     @Override
     public void addCustomer(Customer customer) {

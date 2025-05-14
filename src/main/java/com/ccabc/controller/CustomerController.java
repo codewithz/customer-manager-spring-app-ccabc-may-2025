@@ -3,17 +3,26 @@ package com.ccabc.controller;
 import com.ccabc.model.Customer;
 import com.ccabc.service.CustomerService;
 import com.ccabc.service.CustomerServiceListImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
+
 
 public class CustomerController {
 //    Responsible for checking incoming request and then calling appropriate controller
 
     //Controller is dependent on Service
 //    [TIGHT COUPLING] -- a very bad implementation
-    CustomerService customerService=new CustomerServiceListImpl();
+//    CustomerService customerService=new CustomerServiceListImpl();
+
+    CustomerService customerService;
+
+    public void setCustomerService(CustomerService customerService) {
+        this.customerService = customerService;
+    }
 
     public void initiateApp(){
         Scanner sc=new Scanner(System.in);
